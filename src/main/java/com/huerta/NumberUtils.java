@@ -1,5 +1,7 @@
 package com.huerta;
 
+import java.util.List;
+
 public class NumberUtils {
 
   /*
@@ -16,5 +18,25 @@ public class NumberUtils {
       throw new IllegalArgumentException("Numbers must not be null");
     }
     return num1.doubleValue() + num2.doubleValue();
+  }
+
+  public static <T extends Number> double add(List<T> list) {
+    double result = 0.0;
+    for (T item : list)
+      result += item.doubleValue();
+    return result;
+  }
+
+  public static <T extends Comparable<T>> int countGreaterItems(T[] items, T item) {
+    if (items == null)
+      throw new IllegalArgumentException("items must not be null");
+    int count = 0;
+    for (T element : items) {
+      if (element == null)
+        continue;
+      if (element.compareTo(item) > 0)
+        count++;
+    }
+    return count;
   }
 }
