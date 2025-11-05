@@ -22,8 +22,12 @@ public class GenericsApp {
     return list;
   }
 
+  public static <T> List<T> createList() {
+    return new ArrayList<>();
+  }
+
   public static void main(String[] args) {
-    var list = add(new ArrayList<>(), 1, 2);
-    log.info("List: {}", list);
+    List<String> list = GenericsApp.<String>createList();
+
   }
 }
