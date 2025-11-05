@@ -23,7 +23,7 @@ public class GenericsApp {
   }
 
   public static void main(String[] args) {
-    List<Bucket<String>> list = new ArrayList<>();
-    GenericsApp.addStore("ana", list);
+    var list = add(new ArrayList<>(), 1, 2);
+    log.info("List: {}", list);
   }
 }
